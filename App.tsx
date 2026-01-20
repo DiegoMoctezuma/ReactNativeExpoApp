@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 
+import FloatingButton from './src/components/FloatingButton/floatingButton';
+
 export default function App() {
 
   const [count, setCount] = useState(10);
@@ -11,13 +13,19 @@ export default function App() {
 
       <Text style={styles.textHuge}>{count}</Text>
 
-      <Pressable
+      <FloatingButton
+        label="+1"
         onPress={() => setCount(count + 1)}
         onLongPress={() => setCount(0)}
-        style={styles.floatingButton}
-      >
-        <Text style={{ color: 'white', fontSize: 20 }}>+1</Text>
-      </Pressable>
+        position="right"
+      />
+
+      <FloatingButton
+        label="-1"
+        onPress={() => setCount(count - 1)}
+        onLongPress={() => setCount(0)}
+        position="left"
+      />
 
       <StatusBar style="auto" />
     </View>
@@ -35,21 +43,5 @@ const styles = StyleSheet.create({
   textHuge: {
     fontSize: 120,
     fontWeight: 100,
-  },
-
-  floatingButton: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    padding: 20,
-    backgroundColor: '#6558F7',
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    elevation: 3,
   }
 });
