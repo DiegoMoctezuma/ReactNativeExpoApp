@@ -16,14 +16,12 @@ export default function App() {
       <FloatingButton
         label="+1"
         onPress={() => setCount(count + 1)}
-        onLongPress={() => setCount(0)}
         position="right"
       />
 
       <FloatingButton
-        label="-1"
-        onPress={() => setCount(count - 1)}
-        onLongPress={() => setCount(0)}
+        label="Reiniciar"
+        onPress={() => setCount(0)}
         position="left"
       />
 

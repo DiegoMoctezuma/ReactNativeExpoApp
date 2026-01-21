@@ -14,7 +14,11 @@ export default function floatingButton({ label, onPress, onLongPress, position =
         <Pressable
             onPress={onPress}
             onLongPress={onLongPress}
-            style={[styles.floatingButton, position === 'right' ? styles.positionRight : styles.positionLeft]}
+            style={({ pressed }) => [
+                styles.floatingButton,
+                position === 'right' ? styles.positionRight : styles.positionLeft,
+                pressed ? { opacity: 0.5 } : { opacity: 1 }
+            ]}
         >
             <Text style={{ color: 'white', fontSize: 20 }}>{label}</Text>
         </Pressable>
