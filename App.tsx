@@ -1,29 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
-
-import FloatingButton from './src/components/FloatingButton/floatingButton';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-
-  const [count, setCount] = useState(10);
 
   return (
     <View style={styles.container}>
 
-      <Text style={styles.textHuge}>{count}</Text>
-
-      <FloatingButton
-        label="+1"
-        onPress={() => setCount(count + 1)}
-        position="right"
-      />
-
-      <FloatingButton
-        label="Reiniciar"
-        onPress={() => setCount(0)}
-        position="left"
-      />
+      <Text style={styles.textHuge}>Calculadora</Text>
 
       <StatusBar style="auto" />
     </View>
